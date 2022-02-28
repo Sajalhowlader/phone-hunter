@@ -2,18 +2,29 @@ const searchItem = () => {
     const inputField = document.getElementById('input-field');
     const inputValue = inputField.value;
     inputField.value = ''
+    const mainContainer = document.getElementById('main-container');
+    mainContainer.textContent = ''
     const searchUrl = ` https://openapi.programming-hero.com/api/phones?search=${inputValue}`
     fetch(searchUrl)
         .then(res => res.json())
         .then(data => showItems(data.data))
 }
+
 const showItems = items => {
     console.log(items)
-    const mainContainer = document.getElementById('main-container')
-    items.forEach(item => {
-        const cardContainer = document.createElement('div');
-        cardContainer.classList.add('col-md-4');
-        cardContainer.innerHTML = `
+    if (items.length === 0) {
+        alert('no results found')
+    } else {
+        const mainContainer = document.getElementById('main-container');
+        const brandName = document.createElement('h1')
+        brandName.classList.add('text-center')
+        brandName.innerText = `Brand: ${items[0].brand}`
+        mainContainer.appendChild(brandName)
+        items.forEach(item => {
+            const cardContainer = document.createElement('div');
+
+            cardContainer.classList.add('col-md-4');
+            cardContainer.innerHTML = `
         <div class="card-group">
                     <div class="card">
                         <div class="item-img">
@@ -29,6 +40,8 @@ const showItems = items => {
                         </div>
                     </div>
                 </div>`;
-        mainContainer.appendChild(cardContainer)
-    })
+            mainContainer.appendChild(cardContainer)
+
+        })
+    }
 }
