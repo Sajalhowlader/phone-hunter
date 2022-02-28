@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header-container{
+    text-align: center;
+}
+.header-title{
+    color: rebeccapurple;
+    display: inline-block;
+    border-bottom: 2px solid maroon;
+    margin-top: 20px;
+}
+.header-one{
+    color: rgb(51, 95, 153);
+    display: inline-block;
+    border-bottom: 2px solid maroon;
+}
+.input-text {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 33px;
+}
