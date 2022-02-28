@@ -1,7 +1,12 @@
+/* google font link */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,500&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto', sans-serif;
 }
 .header-container{
     text-align: center;
@@ -22,9 +27,24 @@
     margin: 0 auto;
     margin-top: 33px;
 }
-.item-img{
+.card-item{
     background: #efefef;
     text-align: center;
     padding: 10px;
 }
-.item-img img{width: 50%;margin: 0 auto;}
+.card-item img{width: 50%;margin: 0 auto;}
+card-body,h2,h4 {
+    font-weight: 600;
+}
+
+.details-btn {
+    width: 25%;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    padding: 5px 0px;
+    font-weight: 600;
+    outline: none;
+    background: #dfdfdf;
+    border: 1px solid darkgrey;
+    border-radius: 4px;
+}

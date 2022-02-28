@@ -39,20 +39,27 @@ const showItems = items => {
             cardContainer.classList.add('col-md-4');
             cardContainer.innerHTML = `
         <div class="card-group">
-                    <div class="card">
-                        <div class="item-img">
+                    <div class="card card-item">
                         <img src="${item.image}" class="card-img-top" alt="...">
-                        </div>
-            <div class="card-body">
-            <h5 class="card-title text-center">${item.phone_name}</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p></div>
-            <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
+                   <div class="card-body">
+            <h2 class="card-title text-center">${item.phone_name}</h2>
+            <h4 class="card-text text-center">Brand: ${item.brand}</h4></div>
+        <button onclick="getDetails('${item.slug}')" class="details-btn">Details</button>
             </div>
          </div>`;
             mainContainer.appendChild(cardContainer)
 
         })
     }
+}
+const getDetails = itemDetais => {
+    // console.log(itemDetais)
+    const getUrl = `https://openapi.programming-hero.com/api/phone/${itemDetais}`
+    fetch(getUrl)
+        .then(res => res.json())
+        .then(data => showDetails(data.data))
+
+}
+const showDetails = details => {
+    console.log(details)
 }
