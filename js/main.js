@@ -62,4 +62,17 @@ const getDetails = itemDetais => {
 }
 const showDetails = details => {
     console.log(details)
+    const detailsContainer = document.getElementById('details-container')
+
+    detailsContainer.innerHTML = `<div class="card mb-3 details-container">
+    <img src="${details.image}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title title-head">${details.name}</h5>
+        <h6 class="card-title title-head">${details.releaseDate}</h6>
+        <p>${details.mainFeatures.storage}</p>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+</div>`
 }

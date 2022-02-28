@@ -32,7 +32,7 @@ body{
     text-align: center;
     padding: 10px;
 }
-.card-item img{width: 50%;margin: 0 auto;}
+
 card-body,h2,h4 {
     font-weight: 600;
 }
@@ -48,3 +48,20 @@ card-body,h2,h4 {
     border: 1px solid darkgrey;
     border-radius: 4px;
 }
+.details-container {
+    width: 550px;
+    margin: 0 auto;
+    border: none;
+    box-shadow: -1px 1px 4px 1px #d6d5d7;
+    background: #060b20;
+    color: white;
+}
+.details-container img,.card-item img {
+    width: 50%;
+    margin: 0 auto;
+}
+.title-head{
+    text-align: center;
+    font-weight: bold;
+}
+/* .card-item img{width: 50%;margin: 0 auto;} */
