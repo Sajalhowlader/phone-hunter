@@ -22,3 +22,9 @@
     margin: 0 auto;
     margin-top: 33px;
 }
+.item-img{
+    background: #efefef;
+    text-align: center;
+    padding: 10px;
+}
+.item-img img{width: 50%;margin: 0 auto;}
