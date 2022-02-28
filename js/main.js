@@ -69,10 +69,13 @@ const showDetails = details => {
     <div class="card-body">
         <h5 class="card-title title-head">${details.name}</h5>
         <h6 class="card-title title-head">${details.releaseDate}</h6>
-        <p>${details.mainFeatures.storage}</p>
-        <p></p>
-        <p></p>
-        <p></p>
+        <p>storage:${details.mainFeatures.storage}</p>
+        <p>displaySize:${details.mainFeatures.displaySize}</p>
+        <p><h6>chipset:</h6>${details.mainFeatures.chipSet}</p>
+        <p>memory:${details.mainFeatures.memory}</p>
+        <h2>Sensor</h2>
+        
     </div>
-</div>`
+
+`;
 }

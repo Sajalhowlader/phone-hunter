@@ -49,12 +49,18 @@ card-body,h2,h4 {
     border-radius: 4px;
 }
 .details-container {
-    width: 550px;
+    width: 400px;
     margin: 0 auto;
     border: none;
     box-shadow: -1px 1px 4px 1px #d6d5d7;
-    background: #060b20;
-    color: white;
+    background: #9d9d9e;
+ 
+    text-align: center;
+}
+.details-container p{
+    border: 1px solid royalblue;
+    border-right: none;
+    border-left: none;
 }
 .details-container img,.card-item img {
     width: 50%;
