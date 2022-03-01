@@ -11,16 +11,11 @@ body{
 .header-container{
     text-align: center;
 }
-.header-title{
-    color: rebeccapurple;
-    display: inline-block;
-    border-bottom: 2px solid maroon;
-    margin-top: 20px;
-}
-.header-one{
-    color: rgb(51, 95, 153);
-    display: inline-block;
-    border-bottom: 2px solid maroon;
+
+.header-title {
+    background: linear-gradient(to right, #00fdff 0%, #ff00d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .card-item{
@@ -46,7 +41,7 @@ card-body,h2,h4 {
 }
 
 .details-style p{
-    border-top: 1px solid royalblue;
+    border-top: 1px solid rgba(14, 25, 58, 0.897);
     
 }
 .details-style img,.card-item img {
@@ -57,4 +52,8 @@ card-body,h2,h4 {
     text-align: center;
     font-weight: bold;
 }
-/* .card-item img{width: 50%;margin: 0 auto;} */
+.spinner{
+    margin: 0 auto;
+    width: 10%;
+    display: none;
+}

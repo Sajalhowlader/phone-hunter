@@ -4,6 +4,8 @@ const mainContainer = document.getElementById('main-container');
 const detailsContainer = document.getElementById('details-container')
 // error massege style
 const noResult = document.getElementById('no-results')
+// spinner id
+const spinner = document.getElementById('loading-spiner')
 
 
 
@@ -11,8 +13,9 @@ const noResult = document.getElementById('no-results')
 const searchItem = () => {
     const inputField = document.getElementById('input-field');
     const inputValue = inputField.value;
-
+    spinner.style.display = 'block'
     if (inputValue === '') {
+        spinner.style.display = 'none'
         noResult.innerText = `Please Enter something for show`
     } else if (inputValue !== '') {
         noResult.innerText = ``
@@ -26,21 +29,23 @@ const searchItem = () => {
 
     }
 }
-
+// display all itmes
 const showItems = items => {
-
     if (items.length === 0) {
+        spinner.style.display = 'none'
         noResult.innerText = `No Results Found`
     } else if (items.length > 0) {
+        spinner.style.display = 'none'
         noResult.innerText = ``
         const brandName = document.createElement('h1')
         brandName.classList.add('text-center')
         brandName.innerText = `Brand: ${items[0].brand}`
         mainContainer.appendChild(brandName)
-
+        // display all itmes one by one
         items.forEach(item => {
             const cardContainer = document.createElement('div');
             cardContainer.classList.add('col-md-4', 'col-12');
+            // Use back-tic for show itmes photo,name and brand
             cardContainer.innerHTML = `
         <div class="card-group">
         <div class="card card-item">
@@ -57,6 +62,7 @@ const showItems = items => {
         })
     }
 }
+// get item details
 const getDetails = itemDetais => {
     detailsContainer.textContent = ""
     const getUrl = `https://openapi.programming-hero.com/api/phone/${itemDetais}`
@@ -65,7 +71,9 @@ const getDetails = itemDetais => {
         .then(data => showDetails(data.data))
 
 }
+// show all item details >> Main feature >> Sensor Details and Others information
 const showDetails = details => {
+    spinner.style.display = 'none'
     const sensorDetail = details.mainFeatures.sensors;
     const othersDetails = details.others
     const mainDetails = document.createElement('div')
@@ -73,7 +81,7 @@ const showDetails = details => {
         <img src="${details.image}" class="card-img-top" alt="...">
         <div class="card-body">
         <h5 class="card-title title-head">${details.name}</h5>
-        <h6>${details.releaseDate}</h6>
+        <h6>${details.releaseDate ? details.releaseDate : "No Release Date found"}</h6>
         <h4>Main Feature</h4>
         <p>storage: ${details.mainFeatures.storage}</p>
         <p>displaySize: ${details.mainFeatures.displaySize}</p>
@@ -95,6 +103,6 @@ const showDetails = details => {
         </div>
 
     `;
-
     detailsContainer.appendChild(mainDetails);
 }
+// END
