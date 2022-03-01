@@ -1,5 +1,7 @@
 // main container 
 const mainContainer = document.getElementById('main-container');
+// details container
+const detailsContainer = document.getElementById('details-container')
 // error massege style
 const noResult = document.getElementById('no-results')
 
@@ -54,6 +56,7 @@ const showItems = items => {
 }
 const getDetails = itemDetais => {
     // console.log(itemDetais)
+    detailsContainer.textContent = ""
     const getUrl = `https://openapi.programming-hero.com/api/phone/${itemDetais}`
     fetch(getUrl)
         .then(res => res.json())
@@ -61,10 +64,11 @@ const getDetails = itemDetais => {
 
 }
 const showDetails = details => {
-    // console.log(details.mainFeatures.sensors)
-    const detailsContainer = document.getElementById('details-container')
+    console.log(details.others)
+    const sensorDetail = details.mainFeatures.sensors;
+    const othersDetails = details.others
+    // const detailsContainer = document.getElementById('details-container')
     const mainDetails = document.createElement('div')
-    // mainDetails.classList.add('details-container')
     mainDetails.innerHTML = `<div class="card mb-3">
     <img src="${details.image}" class="card-img-top" alt="...">
     <div class="card-body ">
@@ -75,24 +79,24 @@ const showDetails = details => {
         <p>displaySize:${details.mainFeatures.displaySize}</p>
         <p><h6>chipset:</h6>${details.mainFeatures.chipSet}</p>
         <p>memory:${details.mainFeatures.memory}</p> 
-    </div>
-    </div>
+        <h2>Sensor Details</h2>
+        <p>${sensorDetail[0]}</p>
+        <p>${sensorDetail[1]}</p>
+        <p>${sensorDetail[2]}</p>
+        <p>${sensorDetail[3]}</p>
+        <p>${sensorDetail[4]}</p>
+        <p>${sensorDetail[5]}</p>
+        <h4>Others Info</h4>
+        <p>${othersDetails.WLAN}</p>
+        <p>${othersDetails.Bluetooth}</p>
+        <p>${othersDetails.GPS}</p>
+        <p>${othersDetails.Radio}</p>
+        </div>
+        </div>
 
-`;
+    `;
     detailsContainer.appendChild(mainDetails);
 
-    const sensorContainer = document.createElement('div')
-    const sensorDetail = details.mainFeatures.sensors;
-    console.log(sensorDetail)
-    sensorContainer.innerHTML = `
-<h2>Sensor Details</h2>
-    <p>${sensorDetail[0]}</p>
-    <p>${sensorDetail[1]}</p>
-    <p>${sensorDetail[2]}</p>
-    <p>${sensorDetail[3]}</p>
-    <p>${sensorDetail[4]}</p>
-    <p>${sensorDetail[5]}</p>
-    `
-    detailsContainer.appendChild(sensorContainer)
 }
 // ['Face ID', 'accelerometer', 'gyro', 'proximity', 'compass', 'barometer']
+// {WLAN: 'Wi-Fi 802.11 a/b/g/n/ac/6, dual-band, hotspot', Bluetooth: '5.0, A2DP, LE', GPS: 'Yes, with A-GPS, GLONASS, GALILEO, BDS, QZSS', NFC: 'Yes', Radio: 'No', …}
