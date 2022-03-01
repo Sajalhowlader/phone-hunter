@@ -14,7 +14,7 @@ body{
 
 .header-title {
     background: linear-gradient(to right, #00fdff 0%, #ff00d4 100%);
-    background-clip: text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
