@@ -61,7 +61,7 @@ const getDetails = itemDetais => {
 
 }
 const showDetails = details => {
-    console.log(details)
+    // console.log(details.mainFeatures.sensors)
     const detailsContainer = document.getElementById('details-container')
 
     detailsContainer.innerHTML = `<div class="card mb-3 details-container">
@@ -69,6 +69,7 @@ const showDetails = details => {
     <div class="card-body">
         <h5 class="card-title title-head">${details.name}</h5>
         <h6 class="card-title title-head">${details.releaseDate}</h6>
+        <h2>Main Feature</h2>
         <p>storage:${details.mainFeatures.storage}</p>
         <p>displaySize:${details.mainFeatures.displaySize}</p>
         <p><h6>chipset:</h6>${details.mainFeatures.chipSet}</p>
@@ -78,4 +79,8 @@ const showDetails = details => {
     </div>
 
 `;
+    // const sensorContainer = document.createElement('div')
+    const sensorDetail = details.mainFeatures.sensors;
+    console.log(sensorDetail)
+
 }
