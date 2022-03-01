@@ -48,21 +48,21 @@ card-body,h2,h4 {
     border: 1px solid darkgrey;
     border-radius: 4px;
 }
-.details-container {
+.details-style {
     width: 400px;
     margin: 0 auto;
     border: none;
     box-shadow: -1px 1px 4px 1px #d6d5d7;
-    background: #9d9d9e;
+    /* background: #9d9d9e; */
  
     text-align: center;
 }
-.details-container p{
+.details-style p{
     border: 1px solid royalblue;
     border-right: none;
     border-left: none;
 }
-.details-container img,.card-item img {
+.details-style img,.card-item img {
     width: 50%;
     margin: 0 auto;
 }

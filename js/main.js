@@ -63,24 +63,36 @@ const getDetails = itemDetais => {
 const showDetails = details => {
     // console.log(details.mainFeatures.sensors)
     const detailsContainer = document.getElementById('details-container')
-
-    detailsContainer.innerHTML = `<div class="card mb-3 details-container">
+    const mainDetails = document.createElement('div')
+    // mainDetails.classList.add('details-container')
+    mainDetails.innerHTML = `<div class="card mb-3">
     <img src="${details.image}" class="card-img-top" alt="...">
-    <div class="card-body">
+    <div class="card-body ">
         <h5 class="card-title title-head">${details.name}</h5>
         <h6 class="card-title title-head">${details.releaseDate}</h6>
         <h2>Main Feature</h2>
         <p>storage:${details.mainFeatures.storage}</p>
         <p>displaySize:${details.mainFeatures.displaySize}</p>
         <p><h6>chipset:</h6>${details.mainFeatures.chipSet}</p>
-        <p>memory:${details.mainFeatures.memory}</p>
-        <h2>Sensor</h2>
-        
+        <p>memory:${details.mainFeatures.memory}</p> 
+    </div>
     </div>
 
 `;
-    // const sensorContainer = document.createElement('div')
+    detailsContainer.appendChild(mainDetails);
+
+    const sensorContainer = document.createElement('div')
     const sensorDetail = details.mainFeatures.sensors;
     console.log(sensorDetail)
-
+    sensorContainer.innerHTML = `
+<h2>Sensor Details</h2>
+    <p>${sensorDetail[0]}</p>
+    <p>${sensorDetail[1]}</p>
+    <p>${sensorDetail[2]}</p>
+    <p>${sensorDetail[3]}</p>
+    <p>${sensorDetail[4]}</p>
+    <p>${sensorDetail[5]}</p>
+    `
+    detailsContainer.appendChild(sensorContainer)
 }
+// ['Face ID', 'accelerometer', 'gyro', 'proximity', 'compass', 'barometer']
